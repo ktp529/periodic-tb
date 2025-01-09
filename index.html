@@ -1,0 +1,145 @@
+
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>three.js css3d - periodic table</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link type="text/css" rel="stylesheet" href="main.css">
+		<style>
+			a {
+				color: #8ff;
+			}
+
+      body {
+    background-color: black;
+    color: white; /* Ensure text is visible against the dark background */
+}
+      
+			#menu {
+				position: absolute;
+				bottom: 20px;
+				width: 100%;
+				text-align: center;
+			}
+
+			.element {
+				width: 120px;
+				height: 160px;
+
+				font-family: Helvetica, sans-serif;
+				text-align: center;
+				line-height: normal;
+				cursor: default;
+			}
+
+
+
+      .element .country {
+					position: absolute;
+					top: 10px;
+					left: 14px;
+					font-size: 8.5px;
+					color: white;
+				}
+
+				.element .age {
+					position: absolute;
+					top: 10px;
+					right: 14px;
+					font-size: 8.5px;
+					color: white;
+				}        
+
+        .element .photo {
+    position: absolute;
+    top: auto;             /* Allow precise bottom positioning */
+    bottom: 47px;          /* Move photo closer to the bottom edge */
+    left: 50%;             /* Center horizontally */
+    transform: translateX(-50%); /* Adjust centering due to absolute positioning */
+    width: 90px;           /* Adjust as needed for the photo size */
+    height: 90px;          /* Keep aspect ratio or control image size */
+    object-fit: cover;     /* Ensure the image scales correctly */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Add some depth */
+}
+
+
+
+
+				.element .name {
+					position: absolute;
+					bottom: 28px;
+					left: 0px;
+					right: 0px;
+					font-size: 10px;
+          font-weight: 600;
+					color: white;
+				}
+
+        .element .interest {
+					position: absolute;
+					bottom: 15px;
+					left: 0px;
+					right: 0px;
+					font-size: 9px;
+          font-weight: 10;
+					color: white;
+				}
+
+			button {
+				color: rgba(127,255,255,0.75);
+				background: transparent;
+				outline: 1px solid rgba(127,255,255,0.75);
+				border: 0px;
+				padding: 5px 10px;
+				cursor: pointer;
+			}
+
+			button:hover {
+				background-color: rgba(0,255,255,0.5);
+			}
+
+			button:active {
+				color: #000000;
+				background-color: rgba(0,255,255,0.75);
+			}
+		</style>
+	</head>
+  <script type="module" src="/main.js"></script>
+    
+	<body>
+
+		<div id="info"><a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> css3d - periodic table.</div>
+		<div id="container"></div>
+		<div id="menu">
+			<button id="table">TABLE</button>
+			<button id="sphere">SPHERE</button>
+			<button id="helix">HELIX</button>
+			<button id="grid">GRID</button>
+
+       <!-- Google Sign-In Button -->
+       <button id="googleSignInButton">Sign In with Google</button>
+		</div>
+    
+    
+  <!-- Google Sign-In Button -->
+  <button id="googleSignInButton">Sign in with Google</button>
+
+  <script>
+    // Simple implementation for Google Sign-In button functionality
+    document.getElementById('googleSignInButton').addEventListener('click', function() {
+      const popupWindow = window.open('https://accounts.google.com/o/oauth2/v2/auth', 'Google Sign-In', 'width=400,height=600');
+
+      // After the user signs in, the Google redirect will return to your provided redirect_uri with a token in the URL
+      // You need to handle that redirection and exchange the token for user data on your backend (if using server-side).
+      
+      // For this demonstration, assuming the token is captured in the URL:
+      popupWindow.location.href = 'https://accounts.google.com/o/oauth2/v2/auth?' +
+        'client_id=870636015895-0qvjb9jnnnht66ol7b4qmjd97ng9rnnq.apps.googleusercontent.com' +
+        '&redirect_uri=http://localhost:5173/oauth2callback' +
+        '&response_type=token' +
+        '&scope=email profile';
+    });
+  </script>
